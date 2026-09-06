@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+
+# Generated artifacts -- regenerate any time via extract_features.py
+data/features/*.csv
+data/features/*.joblib
+
+# Raw audio can be large or license-restricted; not versioned by default.
+# Delete these two lines if you want your sample library committed to the repo.
+data/audio/*
+!data/audio/.gitkeep
+
+.DS_Store
