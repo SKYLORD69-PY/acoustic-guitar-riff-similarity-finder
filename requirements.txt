@@ -1,0 +1,7 @@
+librosa>=1.0.0
+numpy>=2.4.0
+pandas>=3.0.0
+scikit-learn>=1.8.0
+joblib>=1.5.0
+soundfile>=0.14.0
+tqdm>=4.70.0
