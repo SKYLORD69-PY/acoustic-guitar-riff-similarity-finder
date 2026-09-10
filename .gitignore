@@ -13,4 +13,7 @@ data/features/*.joblib
 data/audio/*
 !data/audio/.gitkeep
 
+# Scratch storage for files uploaded through the Streamlit app
+data/uploads/
+
 .DS_Store
