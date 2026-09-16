@@ -481,6 +481,9 @@ def main() -> None:
             if query_audio_path.exists() and best_match_path.exists():
                 query_y, query_sr = librosa.load(query_audio_path, sr=None, mono=True)
                 match_y, match_sr = librosa.load(best_match_path, sr=None, mono=True)
+                # Normalize to int at the source -- see the matching comment
+                # in extract_features.load_audio for why.
+                query_sr, match_sr = int(query_sr), int(match_sr)
                 fig = build_waveform_figure(query_label, query_y, query_sr, top_results[0][0], match_y, match_sr)
                 st.plotly_chart(fig, width='stretch')
             else:

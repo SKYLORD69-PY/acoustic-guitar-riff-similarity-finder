@@ -65,7 +65,11 @@ def load_audio(file_path: Path, sample_rate: int) -> Tuple[np.ndarray, int]:
     """
     y, sr = librosa.load(file_path, sr=sample_rate, mono=True)
     y, _ = librosa.effects.trim(y)
-    return y, sr
+    # librosa's type stub allows sr to come back as a float; a sample
+    # rate is always meaningfully an integer number of Hz, and every
+    # downstream signature in this project (here and in app.py) is
+    # typed as int, so it's normalized once, right at the source.
+    return y, int(sr)
 
 
 def extract_chroma_features(y: np.ndarray, sr: int) -> Dict[str, float]:
